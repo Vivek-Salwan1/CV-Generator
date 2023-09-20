@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Generator</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+  <!-- <div class="All"> -->
+  <div class="header">
+    <h2 class="head text-center">Resume Generator</h2>
+    <h4 class="text-center">By Vivek</h4>
+  </div><br><br>
+  <div class="container alldetails">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Personal Info</h2>
+        <form action="">
+          <div class="form-group">
+            <label for="name">Full name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter full name"><br>
+
+            <label for="number">Contact number</label>
+            <input type="number" class="form-control" id="contact" placeholder="Enter contact number"><br>
+
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email address"><br>
+
+            <label for="address">Address</label>
+            <textarea class="form-control" name="address" id="address" cols="5"></textarea><br>
+
+            <label for="facebook">Facebook</label>
+            <input type="text" class="form-control" id="fblink" placeholder="Facebook link"><br>
+          </div><br>
+
+          <h2>Skills</h2>
+
+          <div id="allskills" class="form-group text-center">
+            <input type="text" class="skillInput form-control" placeholder="Enter your skill"><br>
+            <button class="btn btn-outline-secondary btn-sm" id="skillbtn" onclick="addNewSkill()">Add
+              More</button>
+          </div>
+
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2>About me</h2>
+        <div class="form-group">
+          <textarea name="aboutme" id="aboutme" class="form-control" placeholder="Enter about your self"></textarea>
+        </div><br>
+
+        <h2>Education</h2>
+        <div class="education form-group">
+          <label for="course">Course/Class</label>
+          <input type="text" id="course" name="course">
+
+          <label for="college">College</label>
+          <input type="text" id="collage" name="college"><br><br>
+
+          <label style="margin-left: 60px;" for="year">Year</label>
+          <input type="number" id="year" name="year"><br><br>
+
+          <div class="form-group text-center" id="addBtnDiv">
+            <button class="btn btn-outline-secondary btn-sm" id="educationBtn" onclick="addnewEdu()">Add More</button>
+          </div><br>
+        </div>
+
+        <!-- Container for dynamically added education fields -->
+        <div id="educationContainer"></div>
+
+        <!-- Trainings -->
+        <h3>Training/Work Experiace</h3>
+        <div class="weform form-group">
+          <label for="industry" class="">Industry Name</label>
+          <input type="text" name="industry" id="industry" class="form-control">
+          <label for="jobrole" class="">Job Role</label>
+          <input type="text" name="jobrole" id="jobrole" class="form-control">
+          <label for="year" class="">Month/Year</label>
+          <input type="text" name="year" id="year" class="form-control"><br>
+
+          <div class="form-group text-center" id="addBtnWe">
+            <button class="btn btn-outline-secondary btn-sm" id="WeBtn" onclick="addnewWe()">Add More</button>
+          </div><br>
+        </div>
+
+        <!-- Container for dynamically added work experience fields -->
+        <div id="workExperienceContainer"></div>
+      </div>
+    </div>
+
+    <!-- next row and colums -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Left Column Content Goes Here -->
+          <h2>Projects</h2>
+          <div class="form-group">
+            <textarea name="projects" id="projects" class="form-control"
+              placeholder="Enter yours projects details"></textarea><br>
+
+            <h2>Languages</h2>
+            <div class="form-outline w-50 text-center langForm">
+              <input type="text" name="language" class="form-control lang" placeholder="eg.Marathi"><br>
+              <button class="btn btn-outline-secondary btn-sm" id="lanBtn" onclick="addnewLBtn()">Add More</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <!-- Right Column Content Goes Here -->
+          <h2>Hobbies</h2>
+          <div class="form-group hobbies">
+            <textarea name="hobbies" id="hobbies" class="form-control" placeholder="eg.Playing mobile games"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><br>
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary" onclick="generateCV()">Generate CV</button>
+  </div><br><br>
+
+
+  <!-- CV Template -->
+  <div class="containerT">
+    <!-- left coumn -->
+    <div class="left">
+      <div class="proimg">
+        <img class="proImg" src="./profileimg.jpg" alt="" srcset="">
+      </div><br>
+
+      <!-- personal info -->
+      <h2>-- Personal Info --</h2><br>
+      <div class="personalinfo">
+        <p id="nameT">Vivek Hanumant Salwan</p>
+        <p id="contactT">948974847</p>
+        <p id="emailT">vivek@gmail.com</p>
+        <p id="addressT">pune 430 new pune</p>
+        <p id="fblinkT">www.fb.com</p>
+      </div>
+      <br>
+
+      <!-- skills -->
+      <h2>-- Skills --</h2><br>
+      <div class="skills">
+        <ul id="allskillsT">
+          <li>1st skills</li>
+          <li>2nd skill</li>
+          <li>3rd skills</li>
+        </ul>
+
+      </div><br>
+
+
+      <!-- projects -->
+      <h2>-- Projects --</h2><br>
+      <div class="projects">
+        <p id="projectT">project1 <br> project2 <br> project3 <br> project4 <br> project5</p>
+      </div><br>
+
+      <!--languages  -->
+      <h2>-- Languages --</h2><br>
+      <div class="langT">
+        <label for="">English</label><br>
+        <label for="">Marathi</label><br>
+        <label for="">Hindi</label>
+      </div><br>
+    </div>
+
+    <!-- right column -->
+    <div class="right">
+      <!-- aboutme  -->
+      <br>
+      <h2>--About me --</h2><br>
+      <div class="about">
+        <p id="aboutmeT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, veniam? Iste molestias
+          enim dolorem ad nobis dolore in fugit quia consequuntur, perferendis quos vero atque repellat
+          aliquam, sint, laudantium praesentium.</p>
+      </div><br>
+
+      <!-- education -->
+      <h2>-- Education --</h2><br>
+      <div class="educationfields">
+        <div class="box">
+          <label class="ecr" for="courseT">computer enginnering</label>
+        </div>
+        <div class="box">
+          <label class="ecg" for="collageT">shree lokearaw collage of engg satara</label>
+        </div>
+        <div class="box">
+          <label class="ey" for="yearT">2010</label>
+        </div>
+      </div><br>
+
+      <!-- Tranings and work exp. -->
+      <h3>-- Trainings and work exp --</h3><br>
+      <div class="TWfields">
+        <div class="box">
+          <label for="industry">codingrajatech</label>
+        </div>
+        <div class="box">
+          <label for="jobrole">manager</label>
+        </div>
+        <div class="box">
+          <label for="year">2020</label>
+        </div>
+      </div><br>
+      <!-- Hobbies -->
+      <h2>-- Hobbies --</h2><br>
+      <div class="hobbiesT">
+        <p class="hobbyT">Hobby 1</p>
+      </div><br>
+    </div>
+  </div>
+
+  <footer style="text-align: center;
+                color: #0f320e;">@all rights reserved #designed and developed by vivek salwan</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
